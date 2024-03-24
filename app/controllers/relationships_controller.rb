@@ -3,13 +3,13 @@ class RelationshipsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    current_user.relationships.create(followed_id: user.id).save
+    current_user.active_relationships.new(followed_id: user.id).save
     redirect_to request.referer
   end
 
   def destroy
     user = User.find(params[:user_id])
-    current_user.relationships.find_by(followed_id: user.id).destroy
+    current_user.active_relationships.find_by(followed_id: user.id).destroy
     redirect_to request.referer
   end
 
