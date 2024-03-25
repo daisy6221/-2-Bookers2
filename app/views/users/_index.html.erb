@@ -11,6 +11,11 @@
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
+        <td><%= user.followings.count %></td>
+        <td><%= user.followers.count %></td>
+        <td>
+          <%=render 'follow', user: user %>
+        </td>
         <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>
